@@ -20,19 +20,7 @@ new Viking.Alert({
 .show();
 ```
 
-**Confirm with callbacks**
+**Confirm**
 ```
-new Viking.Alert({
-    title : 'Are Viking.Alerts sweet?',
-    confirmation : true,
-    positiveButtonText : 'Totally',
-    negativeButtonText : 'Meh'
-})
-.okayed(function() {
-    console.log('okay!');
-})
-.canceled(function() {
-    console.log('nope!');
-})
-.show();
+Update!
 ```
