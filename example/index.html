@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Viking.Dialog Example</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/viking.dialog.css">
+        <link rel="stylesheet" href="../viking.alert.css">
+        <style>
+            body {
+                background: #2980b9;
+            }
+            .content{
+                text-align: center;
+                padding: 20px;
+                background: #f4f4f4;
+                border-radius: 8px;
+                box-shadow: 0 6px 0 #CCC;
+                width: 560px;
+                height: 160px;
+                margin: 100px auto;
+            }
+            h1 {
+                margin: 0 0 40px;
+            }
+            .close {
+                border-radius: 8px;
+                padding: 5px 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+
+        <div class="content">
+            <h1>Viking.Alert</h1>
+            <button class="btn btn-default" id="alert">Show Alert</button>
+            <button class="btn btn-default" id="confirm">Show Confirm</button>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/backbone.js"></script>
+        <script src="js/viking.js"></script>
+        <script src="js/viking.dialog.js"></script>
+        <script src="../viking.alert.js"></script>
+        <script>
+
+            $('#alert').on('click', function() {
+                new Viking.Alert({
+                    title : 'Hey, Viking.Alerts are sweet!'
+                })
+                .show();
+            });
+
+            $('#confirm').on('click', function() {
+                new Viking.Alert({
+                    title : 'Are Viking.Alerts sweet?',
+                    confirmation : true,
+                    positiveButtonText : 'Totally',
+                    negativeButtonText : 'Meh'
+                })
+                .okayed(function() {
+                    console.log('okay!');
+                })
+                .canceled(function() {
+                    console.log('nope!');
+                })
+                .show();
+            });
+
+        </script>
+    </body>
+</html>
