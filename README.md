@@ -5,8 +5,8 @@ Follow [viking installation](https://github.com/malomalo/viking) instructions
 Include [viking dialog](https://github.com/jono/viking-dialog) as a dependency
 
 Include these files in your HTML or precompile process:
-- `dist/css/viking.alert.css`
-- `dist/js/viking.alert.js`
+- `viking.alert.css`
+- `viking.alert.js`
 
 *Note: `viking.alert.js` must be included after `viking.js`, `viking.dialog.js`, and their dependencies*
 
