@@ -23,7 +23,7 @@ new Viking.Alert({
 **Confirm with callbacks**
 ```
 new Viking.Alert({
-    title : 'Are Viking.Alerts are sweet?',
+    title : 'Are Viking.Alerts sweet?',
     confirmation : true,
     positiveButtonText : 'Totally',
     negativeButtonText : 'Meh'
