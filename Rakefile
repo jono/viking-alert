@@ -38,6 +38,10 @@ task :compile do
     #     }());
     # DOC
   end
+  
+  File.open('./viking.alert.css', "w") do |file|
+    file << environment['viking.alert.css.scss'].to_s
+  end
 end
 
 desc "run JavaScriptLint on the source"

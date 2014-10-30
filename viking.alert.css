@@ -1,0 +1,49 @@
+.viking-alert {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  width: 500px; }
+
+.viking-alert h1 {
+  color: #333;
+  font-size: 2em;
+  font-weight: 300;
+  line-height: 2.5em;
+  margin: 0;
+  padding: 0; }
+
+.viking-alert p {
+  font-size: .8em;
+  line-height: 1.2em;
+  margin: 0 0 25px;
+  color: #777; }
+
+.viking-alert button {
+  border: 1px solid #d9d9d9;
+  border-radius: 3pt;
+  background-image: -webkit-linear-gradient(#f7f7f7, white);
+  background-image: linear-gradient(to bottom, white, #f7f7f7);
+  margin: 0 5px;
+  padding: 0.5em 1.5em;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  outline: 0;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center; }
+
+.viking-alert button:active {
+  background-image: -webkit-linear-gradient(#e5e5e5, #f7f7f7);
+  background-image: linear-gradient(to bottom, #f7f7f7, #e5e5e5); }
+
+.viking-alert button.primary {
+  background-image: -webkit-linear-gradient(#90c43c, #a2ce5c);
+  background-image: linear-gradient(to bottom, #a2ce5c, #90c43c);
+  border-color: #8bbe39;
+  color: #FFF; }
+
+.viking-alert button.primary:active {
+  background-image: -webkit-linear-gradient(#90c43c, #8bbe39);
+  background-image: linear-gradient(to bottom, #8bbe39, #90c43c); }
