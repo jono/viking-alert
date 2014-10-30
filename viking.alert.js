@@ -7,6 +7,10 @@ Viking.Alert = Viking.Dialog.extend({
         'click .viking-alert-btn-negative': 'cancel'
     },
     
+    type: 'confirmation',
+    confirmButtonText: 'Okay',
+    cancelButtonText:  'Cancel',
+
     // options:
     //  - type: the type of Dialog to display (alert || confirmation)
     //  - title: the title of the alert (optional)
@@ -14,39 +18,38 @@ Viking.Alert = Viking.Dialog.extend({
     //  - confirmButtonText: Text to use on the "Confirm"-button. Defaults to "Okay"
     //  - cancelButtonText: Text to use on the "Confirm"-button. Defaults to "Cancel"
     //  - clickOff: Allow the person to click off of the dialog (defaults to false). Calls cancel when clicked off
-    //  - confirm: The callback to call when the user hits the confirmButton
-    //  - cancel:  The callback to call when the user hits the cancelButton
+    //  - onConfirmation: The callback to call when the user hits the confirmButton
+    //  - onCancel:  The callback to call when the user hits the cancelButton
     //  - Other see Viking.Dialog
     initialize : function(options) {
         if (!options) {
             options = {};
         }
         
-        this.options = _.defaults(options, {
-            clickOff : false,
-            confirmButtonText: "Okay",
-            cancelButtonText:  "Cancel"
+        _.each(_.pick(options, 'type', 'title', 'message', 'confirmButtonText', 'cancelButtonText', 'onConfirmation', 'onCancel'), function(value, key) {
+            this[key] = value;
         });
 
-        this.constructor.__super__.initialize.call(this, options);
+        Viking.Dialog.prototype.initialize.call(this, _.defaults(options, {
+            clickOff : false,
+        }));
     },
     
     render : function() {
         this.$el.html(Viking.View.templates['alert-view']({
-            options: this.options
+            view: this
         }));
 
         return this;
     },
 
-
     "confirm": function() {
-        this.options.confirm();
+        this.onConfirmation();
     },
 
     "cancel": function() {
-        this.options.cancel();
+        this.onCancel();
     }
 
 });
-Viking.Alert.templates["alert-view"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<h1>',  options.title ,'</h1>\n\n');  if (text) { ; __p.push('<p>',  options.text ,'</p>');  } ; __p.push('\n\n');  if (options.type == 'confirmation') { ; __p.push('\n<button class="viking-alert-btn-negative">',  options.cancelButtonText ,'</button>\n');  } ; __p.push('\n\n<button class="viking-alert-btn-positive primary">',  options.confirmButtonText ,'</button>\n\n');}return __p.join('');};
+Viking.Alert.templates["alert-view"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('');  if (view.title) { ; __p.push('\n    <h1>',  view.title ,'</h1>\n');  } ; __p.push('\n\n<p>\n    ',  _.result(view, 'message') ,'\n</p>\n\n');  if (view.type == 'confirmation') { ; __p.push('\n    <button class="viking-alert-btn-negative">',  view.cancelButtonText ,'</button>\n');  } ; __p.push('\n\n<button class="viking-alert-btn-positive primary">',  view.confirmButtonText ,'</button>\n');}return __p.join('');};
