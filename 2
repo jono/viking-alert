@@ -48,7 +48,7 @@
         <script src="../viking.alert.js"></script>
         <script>
 
-            $('#basic').on('click', function() {
+            $('#alert').on('click', function() {
                 new Viking.Alert({
                     title : 'Hey, Viking.Alerts are sweet!',
                     text   : 'Seriously, they are.',
@@ -59,16 +59,14 @@
             });
 
 
-            $('#custom').on('click', function() {
+            $('#alert').on('click', function() {
                 var MyAlert = Viking.Alert.extend({
                     title : 'Hey, Viking.Alerts are sweet!',
                     text   : 'Seriously, they are.',
                     onShow : function() { console.log('shown') },
-                    onClose : function() { console.log('closed') },
-                    onConfirmation: function() { console.log('confirm') }
-                });
-
-                new MyAlert().show();
+                    onClose : function() { console.log('closed') }
+                })
+                .show();
             });
 
         </script>

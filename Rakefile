@@ -3,7 +3,6 @@ require 'sprockets'
 require 'erb'
 require 'ejs'
 require 'json'
-require 'rest_client'
 require './test/source_annotation_extractor'
 
 class Sprockets::JstProcessor
